@@ -1,13 +1,20 @@
 const map = L.map("map").setView([51.1657, 10.4515], 6);
 
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; OpenStreetMap contributors"
-}).addTo(map);
+L.tileLayer(
+    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        attribution: "&copy; OpenStreetMap contributors"
+    }
+).addTo(map);
 
 let currentMarker = null;
+let watchId = null;
+
+const status = document.getElementById("status");
 
 navigator.geolocation.getCurrentPosition(
-    function (position) {
+
+    (position) => {
 
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
@@ -20,7 +27,37 @@ navigator.geolocation.getCurrentPosition(
             .openPopup();
     },
 
-    function () {
-        alert("Standortfreigabe wurde nicht erteilt.");
+    () => {
+
+        status.innerText =
+            "Standortfreigabe nicht verfügbar.";
     }
 );
+
+document
+    .getElementById("startBtn")
+    .addEventListener("click", () => {
+
+        status.innerText =
+            "🟢 Sammelaktion läuft";
+
+        watchId =
+            navigator.geolocation.watchPosition(
+                () => {}
+            );
+    });
+
+document
+    .getElementById("stopBtn")
+    .addEventListener("click", () => {
+
+        if (watchId !== null) {
+
+            navigator.geolocation.clearWatch(
+                watchId
+            );
+        }
+
+        status.innerText =
+            "✅ Sammelaktion beendet";
+    });
