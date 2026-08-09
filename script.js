@@ -14,10 +14,14 @@ let routePoints = [];
 let routeLine = null;
 
 let actionCounter =
-    parseInt(localStorage.getItem("actionCounter")) || 0;
+    parseInt(
+        localStorage.getItem("actionCounter")
+    ) || 0;
 
 let totalDistance =
-    parseFloat(localStorage.getItem("totalDistance")) || 0;
+    parseFloat(
+        localStorage.getItem("totalDistance")
+    ) || 0;
 
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
@@ -86,91 +90,9 @@ navigator.geolocation.getCurrentPosition(
             .bindPopup("Mein Standort")
             .openPopup();
     }
+
 );
 
 document
     .getElementById("startBtn")
-    .addEventListener("click", () => {
-
-        routePoints = [];
-
-        status.innerText =
-            "🟢 Sammelaktion läuft";
-
-        watchId =
-            navigator.geolocation.watchPosition(
-                (position) => {
-
-                    const lat =
-                        position.coords.latitude;
-
-                    const lng =
-                        position.coords.longitude;
-                    
-                   const accuracy =
-    position.coords.accuracy;
-
-if (accuracy > 20) {
-    return;
-}
-
-                    routePoints.push([lat, lng]);
-
-                    if (routeLine) {
-                        map.removeLayer(routeLine);
-                    }
-
-                    routeLine = L.polyline(
-                        routePoints,
-                        {
-                            color: "green",
-                            weight: 6
-                        }
-                    ).addTo(map);
-
-                }
-            );
-    });
-
-document
-    .getElementById("stopBtn")
-    .addEventListener("click", () => {
-
-        alert("STOP wurde geklickt");
-
-        if (watchId !== null) {
-
-            navigator.geolocation.clearWatch(
-                watchId
-            );
-        }
-
-        actionCounter++;
-
-        const routeDistance =
-            getRouteLength(routePoints);
-
-        totalDistance += routeDistance;
-
-        localStorage.setItem(
-    "actionCounter",
-    actionCounter
-);
-
-localStorage.setItem(
-    "totalDistance",
-    totalDistance
-);
-
-        routeCount.innerText =
-            "Sammelaktionen: " +
-            actionCounter;
-
-        distanceCount.innerText =
-            "📏 Strecke: " +
-            totalDistance.toFixed(2) +
-            " km";
-
-        status.innerText =
-            "✅ Sammelaktion beendet";
-    });
+    .addEventListener("
