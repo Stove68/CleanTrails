@@ -13,12 +13,24 @@ let watchId = null;
 let routePoints = [];
 let routeLine = null;
 
-let actionCounter = 0;
-let totalDistance = 0;
+let actionCounter =
+    parseInt(localStorage.getItem("actionCounter")) || 0;
+
+let totalDistance =
+    parseFloat(localStorage.getItem("totalDistance")) || 0;
 
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
 const distanceCount = document.getElementById("distanceCount");
+
+routeCount.innerText =
+    "Sammelaktionen: " +
+    actionCounter;
+
+distanceCount.innerText =
+    "📏 Strecke: " +
+    totalDistance.toFixed(2) +
+    " km";
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
@@ -132,6 +144,16 @@ document
             getRouteLength(routePoints);
 
         totalDistance += routeDistance;
+
+        localStorage.setItem(
+    "actionCounter",
+    actionCounter
+);
+
+localStorage.setItem(
+    "totalDistance",
+    totalDistance
+);
 
         routeCount.innerText =
             "Sammelaktionen: " +
