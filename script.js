@@ -106,6 +106,13 @@ document
 
                     const lng =
                         position.coords.longitude;
+                    
+                   const accuracy =
+    position.coords.accuracy;
+
+if (accuracy > 20) {
+    return;
+}
 
                     routePoints.push([lat, lng]);
 
