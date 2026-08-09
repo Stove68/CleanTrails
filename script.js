@@ -10,6 +10,9 @@ L.tileLayer(
 let currentMarker = null;
 let watchId = null;
 
+let routePoints = [];
+let routeLine = null;
+
 const status = document.getElementById("status");
 
 navigator.geolocation.getCurrentPosition(
@@ -38,12 +41,36 @@ document
     .getElementById("startBtn")
     .addEventListener("click", () => {
 
+        routePoints = [];
+
         status.innerText =
             "🟢 Sammelaktion läuft";
 
         watchId =
             navigator.geolocation.watchPosition(
-                () => {}
+                (position) => {
+
+                    const lat =
+                        position.coords.latitude;
+
+                    const lng =
+                        position.coords.longitude;
+
+                    routePoints.push([lat, lng]);
+
+                    if (routeLine) {
+                        map.removeLayer(routeLine);
+                    }
+
+                    routeLine = L.polyline(
+                        routePoints,
+                        {
+                            color: "green",
+                            weight: 6
+                        }
+                    ).addTo(map);
+
+                }
             );
     });
 
