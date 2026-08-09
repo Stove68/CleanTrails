@@ -117,6 +117,8 @@ document
     .getElementById("stopBtn")
     .addEventListener("click", () => {
 
+        alert("STOP wurde geklickt");
+
         if (watchId !== null) {
 
             navigator.geolocation.clearWatch(
