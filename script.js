@@ -18,6 +18,10 @@ let actionCounter =
 
 let totalDistance =
     parseFloat(localStorage.getItem("totalDistance")) || 0;
+let tours =
+    JSON.parse(
+        localStorage.getItem("tours")
+    ) || [];
 
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
@@ -169,7 +173,19 @@ document
             getRouteLength(routePoints);
 
         totalDistance += routeDistance;
+tours.push({
 
+    date: new Date().toLocaleDateString(),
+
+    distance:
+        routeDistance
+
+});
+
+localStorage.setItem(
+    "tours",
+    JSON.stringify(tours)
+);
         localStorage.setItem(
             "actionCounter",
             actionCounter
