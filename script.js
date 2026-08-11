@@ -13,28 +13,12 @@ let watchId = null;
 let routePoints = [];
 let routeLine = null;
 
-let actionCounter =
-    parseInt(
-        localStorage.getItem("actionCounter")
-    ) || 0;
-
-let totalDistance =
-    parseFloat(
-        localStorage.getItem("totalDistance")
-    ) || 0;
+let actionCounter = 0;
+let totalDistance = 0;
 
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
 const distanceCount = document.getElementById("distanceCount");
-
-routeCount.innerText =
-    "Sammelaktionen: " +
-    actionCounter;
-
-distanceCount.innerText =
-    "📏 Strecke: " +
-    totalDistance.toFixed(2) +
-    " km";
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
@@ -108,4 +92,54 @@ document
                     const lat =
                         position.coords.latitude;
 
-      
+                    const lng =
+                        position.coords.longitude;
+
+                    routePoints.push([lat, lng]);
+
+                    if (routeLine) {
+                        map.removeLayer(routeLine);
+                    }
+
+                    routeLine = L.polyline(
+                        routePoints,
+                        {
+                            color: "green",
+                            weight: 6
+                        }
+                    ).addTo(map);
+
+                }
+            );
+    });
+
+document
+    .getElementById("stopBtn")
+    .addEventListener("click", () => {
+
+        if (watchId !== null) {
+
+            navigator.geolocation.clearWatch(
+                watchId
+            );
+        }
+
+        actionCounter++;
+
+        const routeDistance =
+            getRouteLength(routePoints);
+
+        totalDistance += routeDistance;
+
+        routeCount.innerText =
+            "Sammelaktionen: " +
+            actionCounter;
+
+        distanceCount.innerText =
+            "📏 Strecke: " +
+            totalDistance.toFixed(2) +
+            " km";
+
+        status.innerText =
+            "✅ Sammelaktion beendet";
+    });
