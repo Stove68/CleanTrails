@@ -13,12 +13,21 @@ let watchId = null;
 let routePoints = [];
 let routeLine = null;
 
-let actionCounter = 0;
-let totalDistance = 0;
+let actionCounter =
+    parseInt(localStorage.getItem("actionCounter")) || 0;
+
+let totalDistance =
+    parseFloat(localStorage.getItem("totalDistance")) || 0;
 
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
 const distanceCount = document.getElementById("distanceCount");
+
+routeCount.innerText =
+    "Sammelaktionen: " + actionCounter;
+
+distanceCount.innerText =
+    "📏 Strecke: " + totalDistance.toFixed(2) + " km";
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
@@ -95,6 +104,37 @@ document
                     const lng =
                         position.coords.longitude;
 
+                    const accuracy =
+                        position.coords.accuracy;
+
+                    if (accuracy > 20) {
+                        return;
+                    }
+
+                    if (routePoints.length > 0) {
+
+                        const last =
+                            routePoints[
+                                routePoints.length - 1
+                            ];
+
+                        const jumpDistance =
+                            calculateDistance(
+                                last[0],
+                                last[1],
+                                lat,
+                                lng
+                            );
+
+                        if (jumpDistance > 0.05) {
+                            return;
+                        }
+
+                        if (jumpDistance < 0.003) {
+                            return;
+                        }
+                    }
+
                     routePoints.push([lat, lng]);
 
                     if (routeLine) {
@@ -108,7 +148,6 @@ document
                             weight: 6
                         }
                     ).addTo(map);
-
                 }
             );
     });
@@ -130,6 +169,16 @@ document
             getRouteLength(routePoints);
 
         totalDistance += routeDistance;
+
+        localStorage.setItem(
+            "actionCounter",
+            actionCounter
+        );
+
+        localStorage.setItem(
+            "totalDistance",
+            totalDistance
+        );
 
         routeCount.innerText =
             "Sammelaktionen: " +
