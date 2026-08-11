@@ -26,12 +26,41 @@ let tours =
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
 const distanceCount = document.getElementById("distanceCount");
+const historyList =document.getElementById("historyList");
 
 routeCount.innerText =
     "Sammelaktionen: " + actionCounter;
 
 distanceCount.innerText =
     "📏 Strecke: " + totalDistance.toFixed(2) + " km";
+
+function renderHistory() {
+
+    if (tours.length === 0) {
+
+        historyList.innerHTML =
+            "Noch keine Sammelaktionen gespeichert.";
+
+        return;
+    }
+
+    historyList.innerHTML = "";
+
+    tours
+        .slice()
+        .reverse()
+        .forEach((tour) => {
+
+            historyList.innerHTML +=
+
+                tour.date +
+                " | " +
+                tour.distance.toFixed(2) +
+                " km<br>";
+        });
+}
+
+renderHistory();
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
@@ -186,6 +215,8 @@ localStorage.setItem(
     "tours",
     JSON.stringify(tours)
 );
+        renderHistory();
+        
         localStorage.setItem(
             "actionCounter",
             actionCounter
