@@ -33,6 +33,8 @@ const routeCount = document.getElementById("routeCount");
 const distanceCount = document.getElementById("distanceCount");
 const historyList =document.getElementById("historyList");
 
+alert(historyList.innerHTML);
+
 routeCount.innerText =
     "Sammelaktionen: " + actionCounter;
 
