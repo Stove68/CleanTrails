@@ -2,3 +2,4 @@
 Saubere Wege sichtbar machen
 Version 6.1 erfolgreich getestet
 Feldtest erfolgreich
+Version 7.1.Touren werden gespeichert
