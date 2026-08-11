@@ -90,9 +90,22 @@ navigator.geolocation.getCurrentPosition(
             .bindPopup("Mein Standort")
             .openPopup();
     }
-
 );
 
 document
     .getElementById("startBtn")
-    .addEventListener("
+    .addEventListener("click", () => {
+
+        routePoints = [];
+
+        status.innerText =
+            "🟢 Sammelaktion läuft";
+
+        watchId =
+            navigator.geolocation.watchPosition(
+                (position) => {
+
+                    const lat =
+                        position.coords.latitude;
+
+      
