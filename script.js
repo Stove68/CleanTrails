@@ -22,6 +22,10 @@ let tours =
     JSON.parse(
         localStorage.getItem("tours")
     ) || [];
+alert(
+    "Gespeicherte Touren: " +
+    tours.length
+);
 
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
