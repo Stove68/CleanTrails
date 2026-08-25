@@ -67,10 +67,12 @@ function renderHistory() {
 renderHistory();
 
 function renderSavedRoutes() {
+    
 alert(
     "savedRoutes: " +
     savedRoutes.length
 );
+    
     savedRoutes.forEach((savedRoute) => {
 
         if (
