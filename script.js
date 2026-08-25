@@ -27,17 +27,10 @@ let savedRoutes =
         localStorage.getItem("savedRoutes")
     ) || [];
 
-alert(
-    "Gespeicherte Touren: " +
-    tours.length
-);
-
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
 const distanceCount = document.getElementById("distanceCount");
 const historyList =document.getElementById("historyList");
-
-alert(historyList.innerHTML);
 
 routeCount.innerText =
     "Sammelaktionen: " + actionCounter;
@@ -72,10 +65,6 @@ function renderHistory() {
 }
 
 renderHistory();
-
-alert(
-    "Touren: " + tours.length
-);
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
