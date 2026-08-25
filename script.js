@@ -22,6 +22,10 @@ let tours =
     JSON.parse(
         localStorage.getItem("tours")
     ) || [];
+let savedRoutes =
+    JSON.parse(
+        localStorage.getItem("savedRoutes")
+    ) || [];
 
 alert(
     "Gespeicherte Touren: " +
