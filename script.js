@@ -246,6 +246,10 @@ localStorage.setItem(
     "tours",
     JSON.stringify(tours)
 );
+        localStorage.setItem(
+    "savedRoutes",
+    JSON.stringify(savedRoutes)
+);
         renderHistory();
         
         localStorage.setItem(
