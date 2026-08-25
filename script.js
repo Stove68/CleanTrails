@@ -68,16 +68,9 @@ renderHistory();
 
 function renderSavedRoutes() {
     
-alert(
-    "savedRoutes: " +
-    savedRoutes.length
-);
-    
+
     savedRoutes.forEach((savedRoute) => {
-alert(
-    "Routepunkte: " +
-    savedRoute.route.length
-);
+
         if (
             savedRoute.route &&
             savedRoute.route.length > 1
@@ -270,10 +263,7 @@ route:
     [...routePoints]
 
 });
-alert(
-    "savedRoutes nach push: " +
-    savedRoutes.length
-);
+
 localStorage.setItem(
     "tours",
     JSON.stringify(tours)
@@ -282,10 +272,7 @@ localStorage.setItem(
     "savedRoutes",
     JSON.stringify(savedRoutes)
 );
- alert(
-    "savedRoutes gespeichert: " +
-    savedRoutes.length
-);       
+       
         renderHistory();
         
         localStorage.setItem(
