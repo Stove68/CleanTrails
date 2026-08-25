@@ -279,6 +279,10 @@ localStorage.setItem(
     "savedRoutes",
     JSON.stringify(savedRoutes)
 );
+ alert(
+    "savedRoutes gespeichert: " +
+    savedRoutes.length
+);       
         renderHistory();
         
         localStorage.setItem(
