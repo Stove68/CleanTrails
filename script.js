@@ -74,7 +74,10 @@ alert(
 );
     
     savedRoutes.forEach((savedRoute) => {
-
+alert(
+    "Routepunkte: " +
+    savedRoute.route.length
+);
         if (
             savedRoute.route &&
             savedRoute.route.length > 1
