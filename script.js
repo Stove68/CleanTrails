@@ -266,8 +266,8 @@ savedRoutes.push({
     distance:
         routeDistance,
 
-    route:
-        routePoints
+route:
+    [...routePoints]
 
 });
 alert(
