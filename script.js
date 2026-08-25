@@ -267,7 +267,10 @@ savedRoutes.push({
         routePoints
 
 });
-
+alert(
+    "savedRoutes nach push: " +
+    savedRoutes.length
+);
 localStorage.setItem(
     "tours",
     JSON.stringify(tours)
