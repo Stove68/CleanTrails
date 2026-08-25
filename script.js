@@ -225,6 +225,22 @@ tours.push({
         routeDistance
 
 });
+        
+savedRoutes.push({
+
+    date:
+        new Date().toLocaleDateString(),
+
+    collector:
+        "Anonym",
+
+    distance:
+        routeDistance,
+
+    route:
+        routePoints
+
+});
 
 localStorage.setItem(
     "tours",
