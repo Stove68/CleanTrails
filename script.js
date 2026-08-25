@@ -66,6 +66,38 @@ function renderHistory() {
 
 renderHistory();
 
+function renderSavedRoutes() {
+
+    savedRoutes.forEach((savedRoute) => {
+
+        if (
+            savedRoute.route &&
+            savedRoute.route.length > 1
+        ) {
+
+            L.polyline(
+                savedRoute.route,
+                {
+                    color: "green",
+                    weight: 4
+                }
+            )
+            .addTo(map)
+            .bindPopup(
+
+                "Letzte Reinigung: " +
+                savedRoute.date +
+
+                "<br>Sammler: " +
+                savedRoute.collector
+
+            );
+        }
+    });
+}
+
+renderSavedRoutes();
+
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
     const R = 6371;
