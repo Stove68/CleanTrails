@@ -118,6 +118,9 @@ if (savedRoute.isoDate) {
                 "<br>Sammler: " +
                 savedRoute.collector
 
+                "<br>Strecke: " +
+                savedRoute.distance.toFixed(2) +
+                " km"
             );
         }
     });
