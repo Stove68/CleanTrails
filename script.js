@@ -120,7 +120,11 @@ if (savedRoute.isoDate) {
 
                 "<br>Strecke: " +
                 savedRoute.distance.toFixed(2) +
-                " km"
+                " km" +
+                
+                "<br>Routepunkte: " +
+                savedRoute.route.length
+            
             );
         }
     });
