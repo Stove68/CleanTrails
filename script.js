@@ -75,7 +75,33 @@ function renderSavedRoutes() {
             savedRoute.route &&
             savedRoute.route.length > 1
         ) {
+let routeColor = "green";
 
+if (savedRoute.isoDate) {
+
+    const routeDate =
+        new Date(savedRoute.isoDate);
+
+    const today =
+        new Date();
+
+    const ageInMonths =
+
+        (today.getFullYear() -
+         routeDate.getFullYear()) * 12 +
+
+        (today.getMonth() -
+         routeDate.getMonth());
+
+    if (ageInMonths >= 12) {
+
+        routeColor = "white";
+
+    } else if (ageInMonths >= 6) {
+
+        routeColor = "yellow";
+    }
+}
             L.polyline(
                 savedRoute.route,
                 {
