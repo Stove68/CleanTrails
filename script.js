@@ -121,6 +121,10 @@ if (savedRoute.isoDate) {
                 "<br>Strecke: " +
                 savedRoute.distance.toFixed(2) +
                 " km" +
+
+                "<br>Pflegehäufigkeit: " +
+
+                (savedRoute.cleanCount || 1)
                 
                 "<br>Routepunkte: " +
                 savedRoute.route.length
@@ -291,7 +295,10 @@ isoDate:
 
     collector:
         "Anonym",
-
+    
+    cleanCount:
+    1,
+    
     distance:
         routeDistance,
 
