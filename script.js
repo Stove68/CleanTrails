@@ -250,8 +250,11 @@ tours.push({
         
 savedRoutes.push({
 
-    date:
-        new Date().toLocaleDateString(),
+ date:
+    new Date().toLocaleDateString(),
+
+isoDate:
+    new Date().toISOString(),
 
     collector:
         "Anonym",
