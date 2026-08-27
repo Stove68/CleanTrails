@@ -135,7 +135,41 @@ if (savedRoute.isoDate) {
 }
 
 renderSavedRoutes();
+function isSameRoute(
+    routeA,
+    routeB
+) {
 
+    if (
+        !routeA ||
+        !routeB ||
+        routeA.length < 2 ||
+        routeB.length < 2
+    ) {
+        return false;
+    }
+
+    const startDistance =
+        calculateDistance(
+            routeA[0][0],
+            routeA[0][1],
+            routeB[0][0],
+            routeB[0][1]
+        );
+
+    const endDistance =
+        calculateDistance(
+            routeA[routeA.length - 1][0],
+            routeA[routeA.length - 1][1],
+            routeB[routeB.length - 1][0],
+            routeB[routeB.length - 1][1]
+        );
+
+    return (
+        startDistance < 0.02 &&
+        endDistance < 0.02
+    );
+}
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
     const R = 6371;
