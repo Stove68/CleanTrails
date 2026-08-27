@@ -319,6 +319,29 @@ tours.push({
 
 });
         
+let matchingRoute = null;
+
+savedRoutes.forEach((savedRoute) => {
+
+    if (
+        isSameRoute(
+            savedRoute.route,
+            routePoints
+        )
+    ) {
+
+        matchingRoute =
+            savedRoute;
+    }
+});
+        
+ if (matchingRoute) {
+
+    status.innerText =
+        "⚠️ Ähnlicher Weg erkannt";
+
+} 
+        
 savedRoutes.push({
 
  date:
