@@ -105,7 +105,7 @@ if (savedRoute.isoDate) {
             L.polyline(
                 savedRoute.route,
                 {
-                    color: "green",
+                    color: routeColor,
                     weight: 4
                 }
             )
@@ -116,7 +116,7 @@ if (savedRoute.isoDate) {
                 savedRoute.date +
 
                 "<br>Sammler: " +
-                savedRoute.collector
+                savedRoute.collector +
 
                 "<br>Strecke: " +
                 savedRoute.distance.toFixed(2) +
