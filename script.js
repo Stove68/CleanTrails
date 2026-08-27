@@ -27,8 +27,6 @@ let savedRoutes =
         localStorage.getItem("savedRoutes")
     ) || [];
 
-localStorage.clear();
-
 const status = document.getElementById("status");
 const routeCount = document.getElementById("routeCount");
 const distanceCount = document.getElementById("distanceCount");
