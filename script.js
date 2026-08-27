@@ -335,35 +335,52 @@ savedRoutes.forEach((savedRoute) => {
     }
 });
         
- if (matchingRoute) {
+if (matchingRoute) {
 
-    status.innerText =
-        "⚠️ Ähnlicher Weg erkannt";
+    matchingRoute.cleanCount =
+        (matchingRoute.cleanCount || 1) + 1;
 
-} 
+    matchingRoute.date =
+        new Date().toLocaleDateString();
+
+    matchingRoute.isoDate =
+        new Date().toISOString();
+
+    matchingRoute.collector =
+        "Anonym";
+
+    matchingRoute.distance =
+        routeDistance;
+
+    matchingRoute.route =
+        [...routePoints];
+
+} else {
+
+    savedRoutes.push({
+
+        date:
+            new Date().toLocaleDateString(),
+
+        isoDate:
+            new Date().toISOString(),
+
+        collector:
+            "Anonym",
+
+        cleanCount:
+            1,
+
+        distance:
+            routeDistance,
+
+        route:
+            [...routePoints]
+
+    });
+
+}
         
-savedRoutes.push({
-
- date:
-    new Date().toLocaleDateString(),
-
-isoDate:
-    new Date().toISOString(),
-
-    collector:
-        "Anonym",
-    
-    cleanCount:
-    1,
-    
-    distance:
-        routeDistance,
-
-route:
-    [...routePoints]
-
-});
-
 localStorage.setItem(
     "tours",
     JSON.stringify(tours)
