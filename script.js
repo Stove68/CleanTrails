@@ -124,7 +124,7 @@ if (savedRoute.isoDate) {
 
                 "<br>Pflegehäufigkeit: " +
 
-                (savedRoute.cleanCount || 1)
+                (savedRoute.cleanCount || 1) +
                 
                 "<br>Routepunkte: " +
                 savedRoute.route.length
