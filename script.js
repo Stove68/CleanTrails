@@ -143,32 +143,88 @@ function isSameRoute(
     if (
         !routeA ||
         !routeB ||
-        routeA.length < 2 ||
-        routeB.length < 2
+        routeA.length < 5 ||
+        routeB.length < 5
     ) {
         return false;
     }
 
-    const startDistance =
-        calculateDistance(
-            routeA[0][0],
-            routeA[0][1],
-            routeB[0][0],
-            routeB[0][1]
-        );
+    const pointsA = [
 
-    const endDistance =
-        calculateDistance(
-            routeA[routeA.length - 1][0],
-            routeA[routeA.length - 1][1],
-            routeB[routeB.length - 1][0],
-            routeB[routeB.length - 1][1]
-        );
+        routeA[0],
 
-    return (
-        startDistance < 0.05 &&
-        endDistance < 0.05
-    );
+        routeA[
+            Math.floor(
+                routeA.length * 0.25
+            )
+        ],
+
+        routeA[
+            Math.floor(
+                routeA.length * 0.5
+            )
+        ],
+
+        routeA[
+            Math.floor(
+                routeA.length * 0.75
+            )
+        ],
+
+        routeA[
+            routeA.length - 1
+        ]
+    ];
+
+    const pointsB = [
+
+        routeB[0],
+
+        routeB[
+            Math.floor(
+                routeB.length * 0.25
+            )
+        ],
+
+        routeB[
+            Math.floor(
+                routeB.length * 0.5
+            )
+        ],
+
+        routeB[
+            Math.floor(
+                routeB.length * 0.75
+            )
+        ],
+
+        routeB[
+            routeB.length - 1
+        ]
+    ];
+
+    let matches = 0;
+
+    for (let i = 0; i < 5; i++) {
+
+        const distance =
+            calculateDistance(
+
+                pointsA[i][0],
+                pointsA[i][1],
+
+                pointsB[i][0],
+                pointsB[i][1]
+
+            );
+
+        if (distance < 0.03) {
+
+            matches++;
+        }
+    }
+
+    return matches >= 3;
 }
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
