@@ -166,8 +166,8 @@ function isSameRoute(
         );
 
     return (
-        startDistance < 0.02 &&
-        endDistance < 0.02
+        startDistance < 0.05 &&
+        endDistance < 0.05
     );
 }
 function calculateDistance(lat1, lon1, lat2, lon2) {
