@@ -93,7 +93,13 @@ section {
 #grundideeTitel {
     cursor: pointer;
 }
+#ausruestungTitel {
+    cursor: pointer;
+}
 
+#ausruestungText {
+    display: none;
+}
 #grundideeText {
     display: none;
 }
