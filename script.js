@@ -544,6 +544,7 @@ document
                 "▼ 🌱 Grundidee";
         }
     });
+
 document
     .getElementById("ausruestungTitel")
     .addEventListener("click", function () {
