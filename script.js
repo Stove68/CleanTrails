@@ -554,17 +554,28 @@ document
                 "ausruestungText"
             );
 
+        const titel =
+            document.getElementById(
+                "ausruestungTitel"
+            );
+
         if (
             text.style.display ===
-            "none"
+            "block"
         ) {
 
             text.style.display =
-                "block";
+                "none";
+
+            titel.innerText =
+                "▶ 🧰 Ausrüstung";
 
         } else {
 
             text.style.display =
-                "none";
+                "block";
+
+            titel.innerText =
+                "▼ 🧰 Ausrüstung";
         }
     });
