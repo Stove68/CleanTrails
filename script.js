@@ -533,3 +533,26 @@ document
                 "none";
         }
     });
+document
+    .getElementById("ausruestungTitel")
+    .addEventListener("click", function () {
+
+        const text =
+            document.getElementById(
+                "ausruestungText"
+            );
+
+        if (
+            text.style.display ===
+            "none"
+        ) {
+
+            text.style.display =
+                "block";
+
+        } else {
+
+            text.style.display =
+                "none";
+        }
+    });
