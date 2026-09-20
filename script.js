@@ -485,3 +485,27 @@ localStorage.setItem(
         status.innerText =
             "✅ Sammelaktion beendet";
     });
+
+document
+    .getElementById("menuBtn")
+    .addEventListener("click", function () {
+
+        const panel =
+            document.getElementById(
+                "menuPanel"
+            );
+
+        if (
+            panel.style.display ===
+            "none"
+        ) {
+
+            panel.style.display =
+                "block";
+
+        } else {
+
+            panel.style.display =
+                "none";
+        }
+    });
