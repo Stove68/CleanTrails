@@ -84,3 +84,6 @@ section {
 
     cursor: pointer;
 }
+#menuPanel {
+    display: none;
+}
