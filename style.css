@@ -24,6 +24,9 @@ main {
 
 #controls {
     margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
 }
 
 button {
