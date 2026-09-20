@@ -487,25 +487,25 @@ localStorage.setItem(
     });
 
 document
-    .getElementById("menuBtn")
+    .getElementById("grundideeTitel")
     .addEventListener("click", function () {
 
-        const panel =
+        const text =
             document.getElementById(
-                "menuPanel"
+                "grundideeText"
             );
 
         if (
-            panel.style.display ===
+            text.style.display ===
             "none"
         ) {
 
-            panel.style.display =
+            text.style.display =
                 "block";
 
         } else {
 
-            panel.style.display =
+            text.style.display =
                 "none";
         }
     });
