@@ -135,6 +135,27 @@ if (savedRoute.isoDate) {
 }
 
 renderSavedRoutes();
+
+function comparePoints(pointsA, pointsB) {
+    let matches = 0;
+
+    for (let i = 0; i < 5; i++) {
+
+        const distance = calculateDistance(
+            pointsA[i][0],
+            pointsA[i][1],
+            pointsB[i][0],
+            pointsB[i][1]
+        );
+
+        if (distance < 0.05) {
+            matches++;
+        }
+    }
+
+    return matches >= 3;
+}
+
 function isSameRoute(
     routeA,
     routeB
@@ -203,28 +224,22 @@ function isSameRoute(
         ]
     ];
 
-    let matches = 0;
+  const forwardMatch =
+    comparePoints(
+        pointsA,
+        pointsB
+    );
 
-    for (let i = 0; i < 5; i++) {
+const reverseMatch =
+    comparePoints(
+        pointsA,
+        [...pointsB].reverse()
+    );
 
-        const distance =
-            calculateDistance(
-
-                pointsA[i][0],
-                pointsA[i][1],
-
-                pointsB[i][0],
-                pointsB[i][1]
-
-            );
-
-        if (distance < 0.03) {
-
-            matches++;
-        }
-    }
-
-    return matches >= 3;
+return (
+    forwardMatch ||
+    reverseMatch
+);
 }
 function calculateDistance(lat1, lon1, lat2, lon2) {
 
