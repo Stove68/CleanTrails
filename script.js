@@ -487,6 +487,30 @@ localStorage.setItem(
     });
 
 document
+    .getElementById("menuBtn")
+    .addEventListener("click", function () {
+
+        const panel =
+            document.getElementById(
+                "menuPanel"
+            );
+
+        if (
+            panel.style.display ===
+            "block"
+        ) {
+
+            panel.style.display =
+                "none";
+
+        } else {
+
+            panel.style.display =
+                "block";
+        }
+    });
+
+document
     .getElementById("grundideeTitel")
     .addEventListener("click", function () {
 
