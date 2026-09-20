@@ -519,18 +519,29 @@ document
                 "grundideeText"
             );
 
+        const titel =
+            document.getElementById(
+                "grundideeTitel"
+            );
+
         if (
             text.style.display ===
-            "none"
+            "block"
         ) {
 
             text.style.display =
-                "block";
+                "none";
+
+            titel.innerText =
+                "▶ 🌱 Grundidee";
 
         } else {
 
             text.style.display =
-                "none";
+                "block";
+
+            titel.innerText =
+                "▼ 🌱 Grundidee";
         }
     });
 document
