@@ -87,3 +87,10 @@ section {
 #menuPanel {
     display: none;
 }
+#grundideeTitel {
+    cursor: pointer;
+}
+
+#grundideeText {
+    display: none;
+}
