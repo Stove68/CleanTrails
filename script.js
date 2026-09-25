@@ -405,9 +405,15 @@ savedRoutes.forEach((savedRoute) => {
             savedRoute;
     }
 });
-        
+console.log(
+    "Route erkannt:",
+    matchingRoute !== null
+);        
 if (matchingRoute) {
-
+    
+    console.log(
+    "Bestehender Weg wird aktualisiert"
+    );
     matchingRoute.cleanCount =
         (matchingRoute.cleanCount || 1) + 1;
 
@@ -427,7 +433,11 @@ if (matchingRoute) {
         [...routePoints];
 
 } else {
-
+    
+    console.log(
+    "Neuer Weg wird angelegt"
+    );
+    
     savedRoutes.push({
 
         date:
