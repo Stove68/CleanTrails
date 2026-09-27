@@ -314,7 +314,39 @@ function getRouteLength(points) {
 
     return distance;
 }
+function smoothRoute(points) {
 
+    if (points.length < 3) {
+        return points;
+    }
+
+    const smoothed = [points[0]];
+
+    for (let i = 1; i < points.length - 1; i++) {
+
+        const lat =
+            (
+                points[i - 1][0] +
+                points[i][0] +
+                points[i + 1][0]
+            ) / 3;
+
+        const lng =
+            (
+                points[i - 1][1] +
+                points[i][1] +
+                points[i + 1][1]
+            ) / 3;
+
+        smoothed.push([lat, lng]);
+    }
+
+    smoothed.push(
+        points[points.length - 1]
+    );
+
+    return smoothed;
+}
 navigator.geolocation.getCurrentPosition(
 
     (position) => {
@@ -667,7 +699,9 @@ document
             localStorage.removeItem(
                 "actionCounter"
             );
-
+            localStorage.removeItem(
+            "totalDistance"
+            );
             savedRoutes = [];
             tours = [];
 
