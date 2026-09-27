@@ -72,7 +72,6 @@ renderHistory();
 
 function renderSavedRoutes() {
     
-
     savedRoutes.forEach((savedRoute) => {
 
         if (
@@ -130,8 +129,8 @@ if (savedRoute.isoDate) {
 
                 (savedRoute.cleanCount || 1) +
                 
-                "<br>Routepunkte: " +
-                savedRoute.route.length
+               "<br>Uhrzeit: " +
+                (savedRoute.time || "-")
             
             );
         }
@@ -472,6 +471,9 @@ if (matchingRoute) {
     matchingRoute.date =
         new Date().toLocaleDateString();
 
+    matchingRoute.time =
+new Date().toLocaleTimeString();
+    
     matchingRoute.isoDate =
         new Date().toISOString();
 
@@ -497,7 +499,10 @@ if (matchingRoute) {
 
         isoDate:
             new Date().toISOString(),
-
+        
+        time:
+        new Date().toLocaleTimeString(),
+        
         collector:
             "Anonym",
 
