@@ -370,14 +370,22 @@ document
     .getElementById("stopBtn")
     .addEventListener("click", () => {
 
-       document
-    .getElementById("stopBtn")
-    .addEventListener("click", () => {
 
         if (!isTracking) {
             return;
         }
+        if (routePoints.length < 2) {
+        isTracking = false;
+        return;
+        }
+        if (watchId !== null) {
 
+        navigator.geolocation.clearWatch(
+        watchId
+        );
+
+    watchId = null;
+}
         actionCounter++;
 
         const routeDistance =
@@ -390,8 +398,9 @@ tours.push({
 
     distance:
         routeDistance
-    isTracking = false;
+   
 });
+isTracking = false; 
         
 let matchingRoute = null;
 
