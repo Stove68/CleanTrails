@@ -599,7 +599,20 @@ document
             )
         ) {
 
-            localStorage.clear();
+                        localStorage.removeItem(
+                "savedRoutes"
+            );
+
+            localStorage.removeItem(
+                "tours"
+            );
+
+            localStorage.removeItem(
+                "actionCounter"
+            );
+
+            savedRoutes = [];
+            tours = [];
 
             location.reload();
         }
