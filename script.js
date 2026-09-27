@@ -13,6 +13,8 @@ let watchId = null;
 let routePoints = [];
 let routeLine = null;
 
+let isTracking = false;
+
 let actionCounter =
     parseInt(localStorage.getItem("actionCounter")) || 0;
 
@@ -302,7 +304,7 @@ document
     .addEventListener("click", () => {
 
         routePoints = [];
-
+isTracking = true;
         status.innerText =
             "🟢 Sammelaktion läuft";
 
@@ -368,11 +370,12 @@ document
     .getElementById("stopBtn")
     .addEventListener("click", () => {
 
-        if (watchId !== null) {
+       document
+    .getElementById("stopBtn")
+    .addEventListener("click", () => {
 
-            navigator.geolocation.clearWatch(
-                watchId
-            );
+        if (!isTracking) {
+            return;
         }
 
         actionCounter++;
@@ -387,7 +390,7 @@ tours.push({
 
     distance:
         routeDistance
-
+    isTracking = false;
 });
         
 let matchingRoute = null;
