@@ -61,6 +61,8 @@ function renderHistory() {
 
                 tour.date +
                 " | " +
+                tour.time +
+                " | " +
                 tour.distance.toFixed(2) +
                 " km<br>";
         });
@@ -423,7 +425,8 @@ document
 tours.push({
 
     date: new Date().toLocaleDateString(),
-
+    time: new Date().toLocaleTimeString(),
+    
     distance:
         routeDistance
    
