@@ -265,7 +265,38 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 
     return R * c;
 }
+function isNearRoute(routeA, routeB) {
 
+    if (
+        !routeA ||
+        !routeB ||
+        routeA.length === 0 ||
+        routeB.length === 0
+    ) {
+        return false;
+    }
+
+    const startDistance =
+        calculateDistance(
+            routeA[0][0],
+            routeA[0][1],
+            routeB[0][0],
+            routeB[0][1]
+        );
+
+    const endDistance =
+        calculateDistance(
+            routeA[routeA.length - 1][0],
+            routeA[routeA.length - 1][1],
+            routeB[routeB.length - 1][0],
+            routeB[routeB.length - 1][1]
+        );
+
+    return (
+        startDistance < 0.02 &&
+        endDistance < 0.02
+    );
+}
 function getRouteLength(points) {
 
     let distance = 0;
@@ -404,11 +435,20 @@ let matchingRoute = null;
 savedRoutes.forEach((savedRoute) => {
 
     if (
+ 
         isSameRoute(
-            savedRoute.route,
-            routePoints
-        )
-    ) {
+        savedRoute.route,
+        routePoints
+    )
+ 
+    ||
+ 
+    isNearRoute(
+    savedRoute.route,
+    routePoints
+    )
+ 
+){
 
         matchingRoute =
             savedRoute;
