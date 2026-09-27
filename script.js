@@ -105,13 +105,15 @@ if (savedRoute.isoDate) {
         routeColor = "yellow";
     }
 }
-            L.polyline(
-                savedRoute.route,
-                {
-                    color: routeColor,
-                    weight: 4
-                }
-            )
+           L.polyline(
+            smoothRoute(
+            savedRoute.route
+            ),
+    {
+        color: routeColor,
+        weight: 4
+    }
+)
             .addTo(map)
             .bindPopup(
 
