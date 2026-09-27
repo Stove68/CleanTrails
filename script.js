@@ -374,10 +374,7 @@ document
         if (!isTracking) {
             return;
         }
-        if (routePoints.length < 2) {
-        isTracking = false;
-        return;
-        }
+       
         if (watchId !== null) {
 
         navigator.geolocation.clearWatch(
