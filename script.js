@@ -589,3 +589,24 @@ document
                 "▼ 🧰 Ausrüstung";
         }
     });
+document
+    .getElementById("resetBtn")
+    .addEventListener("click", function () {
+
+        if (
+            confirm(
+                "Alle Testdaten löschen?"
+            )
+        ) {
+
+            localStorage.removeItem(
+                "savedRoutes"
+            );
+
+            localStorage.removeItem(
+                "tours"
+            );
+
+            location.reload();
+        }
+    });
