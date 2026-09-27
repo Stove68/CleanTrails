@@ -599,13 +599,7 @@ document
             )
         ) {
 
-            localStorage.removeItem(
-                "savedRoutes"
-            );
-
-            localStorage.removeItem(
-                "tours"
-            );
+            localStorage.clear();
 
             location.reload();
         }
