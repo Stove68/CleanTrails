@@ -300,6 +300,48 @@ function isNearRoute(routeA, routeB) {
         endDistance < 0.02
     );
 }
+function getOverlapPercent(
+    routeA,
+    routeB
+) {
+
+    if (
+        !routeA ||
+        !routeB ||
+        routeA.length === 0 ||
+        routeB.length === 0
+    ) {
+        return 0;
+    }
+
+    let matchingPoints = 0;
+
+    routeA.forEach((pointA) => {
+
+        const foundMatch =
+            routeB.some((pointB) => {
+
+                const distance =
+                    calculateDistance(
+                        pointA[0],
+                        pointA[1],
+                        pointB[0],
+                        pointB[1]
+                    );
+
+                return distance < 0.02;
+            });
+
+        if (foundMatch) {
+            matchingPoints++;
+        }
+    });
+
+    return (
+        matchingPoints /
+        routeA.length
+    );
+}
 function getRouteLength(points) {
 
     let distance = 0;
