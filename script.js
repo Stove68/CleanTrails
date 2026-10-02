@@ -511,7 +511,16 @@ isTracking = false;
 let matchingRoute = null;
 
 savedRoutes.forEach((savedRoute) => {
-
+    const overlap =
+        getOverlapPercent(
+            savedRoute.route,
+            routePoints
+        );
+ 
+    console.log(
+        "Überdeckung:",
+        Math.round(overlap * 100) + "%"
+);
     if (
  
         isSameRoute(
@@ -525,7 +534,12 @@ savedRoutes.forEach((savedRoute) => {
     savedRoute.route,
     routePoints
     )
+    ||
  
+    getOverlapPercent(
+        savedRoute.route,
+        routePoints
+    ) > 0.5
 ){
 
         matchingRoute =
