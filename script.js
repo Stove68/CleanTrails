@@ -99,7 +99,8 @@ if (savedRoute.isoDate) {
 } else if (ageInMinutes >= 5) {
 
     routeColor = "yellow";
-}
+        }
+    }
            L.polyline(
             smoothRoute(
             savedRoute.route
