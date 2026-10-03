@@ -94,11 +94,11 @@ if (savedRoute.isoDate) {
 
    if (ageInMinutes >= 15) {
 
-    routeColor = "white";
+    routeColor = "hotpink";
 
 } else if (ageInMinutes >= 5) {
 
-    routeColor = "yellow";
+    routeColor = "orange";
         }
 }
             
