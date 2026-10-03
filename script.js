@@ -539,7 +539,7 @@ savedRoutes.forEach((savedRoute) => {
     getOverlapPercent(
         savedRoute.route,
         routePoints
-    ) > 0.5
+    ) > 0.8
 ){
 
         matchingRoute =
