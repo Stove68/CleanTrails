@@ -100,7 +100,8 @@ if (savedRoute.isoDate) {
 
     routeColor = "yellow";
         }
-    }
+}
+            
            L.polyline(
             smoothRoute(
             savedRoute.route
