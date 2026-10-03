@@ -88,22 +88,17 @@ if (savedRoute.isoDate) {
     const today =
         new Date();
 
-    const ageInMonths =
+    const ageInMinutes = Math.floor(
+    (today - routeDate) / 60000
+);
 
-        (today.getFullYear() -
-         routeDate.getFullYear()) * 12 +
+   if (ageInMinutes >= 15) {
 
-        (today.getMonth() -
-         routeDate.getMonth());
+    routeColor = "white";
 
-    if (ageInMonths >= 12) {
+} else if (ageInMinutes >= 5) {
 
-        routeColor = "white";
-
-    } else if (ageInMonths >= 6) {
-
-        routeColor = "yellow";
-    }
+    routeColor = "yellow";
 }
            L.polyline(
             smoothRoute(
