@@ -622,43 +622,51 @@ new Date().toLocaleTimeString();
         routeDistance;
 
     matchingRoute.route =
-        [...routePoints];
+    [...routePoints];
 
+    matchingRoute.segments =
+    splitRouteIntoSegments(
+        routePoints
+    );
 } else {
     
-    console.log(
-    "Neuer Weg wird angelegt"
+const segments =
+    splitRouteIntoSegments(
+        routePoints
     );
-    
-    savedRoutes.push({
 
-        date:
-            new Date().toLocaleDateString(),
+savedRoutes.push({
 
-        isoDate:
-            new Date().toISOString(),
-        
-        time:
+    date:
+        new Date().toLocaleDateString(),
+
+    isoDate:
+        new Date().toISOString(),
+
+    time:
         new Date().toLocaleTimeString(),
-        
-        collector:
-            "Anonym",
 
-        cleanCount:
-            1,
+    collector:
+        "Anonym",
 
-        distance:
-            routeDistance,
-        
-        segments:
-            splitRouteIntoSegments(
-                routePoints
-            ),
-        route:
-            [...routePoints]
+    cleanCount:
+        1,
 
-    });
+    distance:
+        routeDistance,
 
+    segments:
+        segments,
+
+    route:
+        [...routePoints]
+
+});
+
+console.log(
+    "Segmente:",
+    segments.length
+);
 }
         
 localStorage.setItem(
