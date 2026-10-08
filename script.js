@@ -649,7 +649,11 @@ new Date().toLocaleTimeString();
 
         distance:
             routeDistance,
-
+        
+        segments:
+            splitRouteIntoSegments(
+                routePoints
+            ),
         route:
             [...routePoints]
 
