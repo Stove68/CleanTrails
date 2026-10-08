@@ -130,7 +130,11 @@ if (savedRoute.isoDate) {
                 
                "<br>Uhrzeit: " +
                 (savedRoute.time || "-")
-            
+
+                + "<br>Segmente: " +
+                (savedRoute.segments
+                ? savedRoute.segments.length
+                : 0)
             );
         }
     });
