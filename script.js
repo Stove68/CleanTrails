@@ -354,6 +354,57 @@ function getRouteLength(points) {
     }
 
     return distance;
+ }
+ function splitRouteIntoSegments(
+    route,
+    segmentSize = 100
+) {
+
+    const segments = [];
+
+    let currentSegment = [];
+    let currentLength = 0;
+
+    for (let i = 1; i < route.length; i++) {
+
+        const distance =
+            calculateDistance(
+                route[i - 1][0],
+                route[i - 1][1],
+                route[i][0],
+                route[i][1]
+            ) * 1000;
+
+        currentSegment.push(
+            route[i - 1]
+        );
+
+        currentLength += distance;
+
+        if (
+            currentLength >=
+            segmentSize
+        ) {
+
+            segments.push(
+                [...currentSegment]
+            );
+
+            currentSegment = [];
+            currentLength = 0;
+        }
+    }
+
+    if (
+        currentSegment.length > 0
+    ) {
+
+        segments.push(
+            currentSegment
+        );
+    }
+
+    return segments;   
 }
 function smoothRoute(points) {
 
