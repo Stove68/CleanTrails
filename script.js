@@ -384,15 +384,28 @@ function getRouteLength(points) {
         );
 
         currentLength += distance;
-
+        
+        console.log(
+        "currentLength:",
+        currentLength
+);
+        console.log(
+            "Aktuelle Segmentlänge:",
+            currentLength
+);
         if (
             currentLength >=
             segmentSize
         ) {
-
-            segments.push(
-                [...currentSegment]
-            );
+        console.log(
+    "Neues Segment erzeugt bei",
+    currentLength,
+    "m"
+);
+            
+     segments.push(
+        [...currentSegment]
+        );
 
             currentSegment = [];
             currentLength = 0;
@@ -407,7 +420,10 @@ function getRouteLength(points) {
             currentSegment
         );
     }
-
+        console.log(
+        "Anzahl Segmente:",
+        segments.length
+);
     return segments;   
 }
 function smoothRoute(points) {
