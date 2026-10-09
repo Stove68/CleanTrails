@@ -15,6 +15,8 @@ let routeLine = null;
 
 let isTracking = false;
 
+let wakeLock = null
+
 let actionCounter =
     parseInt(localStorage.getItem("actionCounter")) || 0;
 
@@ -40,6 +42,27 @@ routeCount.innerText =
 distanceCount.innerText =
     "📏 Strecke: " + totalDistance.toFixed(2) + " km";
 
+async function requestWakeLock() {
+
+    try {
+
+        wakeLock =
+            await navigator.wakeLock.request(
+                "screen"
+            );
+
+        console.log(
+            "Wake Lock aktiv"
+        );
+
+    } catch (err) {
+
+        console.log(
+            "Wake Lock Fehler:",
+            err
+        );
+    }
+}
 function renderHistory() {
 
     if (tours.length === 0) {
@@ -481,6 +504,7 @@ document
 
         routePoints = [];
 isTracking = true;
+        requestWakeLock();
         status.innerText =
             "🟢 Sammelaktion läuft";
 
@@ -718,7 +742,13 @@ localStorage.setItem(
             "📏 Strecke: " +
             totalDistance.toFixed(2) +
             " km";
+        
+    if (wakeLock) {
 
+    wakeLock.release();
+
+    wakeLock = null;
+}
         status.innerText =
             "✅ Sammelaktion beendet";
     });
