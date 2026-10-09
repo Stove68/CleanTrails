@@ -516,9 +516,7 @@ document.getElementById(
 document.getElementById(
     "resetBtn"
 ).disabled = true;
-        document.body.classList.add(
-    "locked"
-);
+
         status.innerText =
             "🟢 Sammelaktion läuft";
 
