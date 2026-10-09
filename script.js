@@ -407,10 +407,7 @@ function getRouteLength(points) {
         );
 
         currentLength += distance;
-        
-        console.log(
-        "currentLength:",
-        currentLength
+       
 );
         console.log(
             "Aktuelle Segmentlänge:",
@@ -648,10 +645,7 @@ savedRoutes.forEach((savedRoute) => {
     )
     ||
  
-    getOverlapPercent(
-        savedRoute.route,
-        routePoints
-    ) > 0.8
+    overlap > 0.8
 ){
 
         matchingRoute =
@@ -904,6 +898,9 @@ document
             savedRoutes = [];
             tours = [];
 
+            actionCounter = 0;
+            totalDistance = 0;
+            
             location.reload();
         }
     });
