@@ -103,3 +103,10 @@ section {
 #grundideeText {
     display: none;
 }
+.locked {
+    pointer-events: none;
+}
+
+#stopBtn {
+    pointer-events: auto;
+}
