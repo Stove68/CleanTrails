@@ -505,6 +505,17 @@ document
         routePoints = [];
 isTracking = true;
         requestWakeLock();
+        document.getElementById(
+    "startBtn"
+).disabled = true;
+
+document.getElementById(
+    "menuBtn"
+).disabled = true;
+
+document.getElementById(
+    "resetBtn"
+).disabled = true;
         document.body.classList.add(
     "locked"
 );
@@ -573,9 +584,17 @@ document
     .getElementById("stopBtn")
     .addEventListener("click", () => {
 
-
         if (!isTracking) {
             return;
+        }
+
+        if (
+            !confirm(
+                "Sammelaktion wirklich beenden?"
+            )
+        ) {
+            return;
+
         }
        
         if (watchId !== null) {
@@ -752,6 +771,17 @@ localStorage.setItem(
 
     wakeLock = null;
 }
+        document.getElementById(
+    "startBtn"
+).disabled = false;
+
+document.getElementById(
+    "menuBtn"
+).disabled = false;
+
+document.getElementById(
+    "resetBtn"
+).disabled = false;
         status.innerText =
             "✅ Sammelaktion beendet";
     });
