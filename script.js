@@ -505,6 +505,9 @@ document
         routePoints = [];
 isTracking = true;
         requestWakeLock();
+        document.body.classList.add(
+    "locked"
+);
         status.innerText =
             "🟢 Sammelaktion läuft";
 
