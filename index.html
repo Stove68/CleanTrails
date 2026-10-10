@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>CleaningTheWay</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
 </head>
 
@@ -23,6 +22,8 @@
 <header>
 
     <h1>🌿 Cleaning The Way</h1>
+
+    <p>Saubere Wege sichtbar machen</p>
 
     <button id="menuBtn">
         ☰ Menü
@@ -50,7 +51,17 @@
         Bereit für eine Sammelaktion
     </div>
 
+    <!-- DIE KARTE STEHT JETZT IM ZENTRUM -->
+
+    <section id="mapSection">
+
+        <div id="map"></div>
+
+    </section>
+
     <div id="stats">
+
+        <h3>Statistik</h3>
 
         <p id="routeCount">
             🧹 Sammelaktionen: 0
@@ -61,12 +72,6 @@
         </p>
 
     </div>
-
-    <section id="mapSection">
-
-        <div id="map"></div>
-
-    </section>
 
 </div>
 
@@ -120,17 +125,14 @@
 
 <!-- GRUNDIDEE -->
 
-<div
-    id="grundideePage"
-    style="display:none;">
+<div id="grundideePage"
+     style="display:none;">
 
     <button id="backFromGrundidee">
         ← Zurück
     </button>
 
-    <h2>
-        🌱 Grundidee
-    </h2>
+    <h2>🌱 Grundidee</h2>
 
     <p>
         CleaningTheWay macht sichtbar,
@@ -150,8 +152,8 @@
 
     <p>
         <strong>
-            „Erst wenn alle Wege grün dargestellt werden,
-            ist CleaningTheWay überflüssig.“
+            „Erst wenn alle Wege grün dargestellt
+            werden, ist CleaningTheWay überflüssig.“
         </strong>
     </p>
 
@@ -159,47 +161,30 @@
 
 <!-- AUSRÜSTUNG -->
 
-<div
-    id="ausruestungPage"
-    style="display:none;">
+<div id="ausruestungPage"
+     style="display:none;">
 
     <button id="backFromAusruestung">
         ← Zurück
     </button>
 
-    <h2>
-        🧰 Ausrüstung
-    </h2>
+    <h2>🧰 Ausrüstung</h2>
 
     <ul>
 
-        <li>
-            🦾 Müllgreifer
-        </li>
+        <li>🦾 Müllgreifer</li>
 
-        <li>
-            🧤 Handschuhe
-        </li>
+        <li>🧤 Handschuhe</li>
 
-        <li>
-            🗑️ Müllbeutel
-        </li>
+        <li>🗑️ Müllbeutel</li>
 
-        <li>
-            🪣 Eimer
-        </li>
+        <li>🪣 Eimer</li>
 
-        <li>
-            🛒 Trolley
-        </li>
+        <li>🛒 Trolley</li>
 
-        <li>
-            🦺 Warnweste
-        </li>
+        <li>🦺 Warnweste</li>
 
-        <li>
-            💧 Trinkflasche
-        </li>
+        <li>💧 Trinkflasche</li>
 
     </ul>
 
@@ -207,17 +192,14 @@
 
 <!-- HISTORIE -->
 
-<div
-    id="historiePage"
-    style="display:none;">
+<div id="historiePage"
+     style="display:none;">
 
     <button id="backFromHistorie">
         ← Zurück
     </button>
 
-    <h2>
-        📊 Historie
-    </h2>
+    <h2>📊 Historie</h2>
 
     <div id="historyList">
 
@@ -229,7 +211,3 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<script src="script.js"></script>
-
-</body>
-</html>
