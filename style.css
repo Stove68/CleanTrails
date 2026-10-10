@@ -77,10 +77,10 @@ section {
 
 #menuBtn {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: -5px;
+    right: -5px;
 
-    font-size: 26px;
+    font-size: 28px;
 
     background: none;
     border: none;
