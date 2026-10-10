@@ -2,7 +2,9 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>CleaningTheWay</title>
 
     <link rel="stylesheet" href="style.css">
@@ -18,25 +20,122 @@
     <p>Saubere Wege sichtbar machen</p>
 </header>
 
-<main>
+<!-- HAUPTSEITE -->
 
-    <section id="headerSection">
-        <h2>Willkommen</h2>
-<button id="menuBtn">☰</button>
-        <p>
-            Cleaning The Way dokumentiert gereinigte Wege
-            und macht Umweltengagement sichtbar.
-        </p>
-    </section>
-<div id="menuPanel">
+<div id="mainPage">
 
-<p>🏠 Startseite</p>
+    <main>
 
-<div id="grundidee">
+        <section id="headerSection">
 
-    <h3 id="grundideeTitel">▶ 🌱 Grundidee</h3>
+            <h2>Willkommen</h2>
 
-<div id="grundideeText">
+            <button id="menuBtn">
+                ☰ Menü
+            </button>
+
+            <p>
+                Cleaning The Way dokumentiert
+                gereinigte Wege und macht
+                Umweltengagement sichtbar.
+            </p>
+
+        </section>
+
+        <div id="menuPanel">
+
+            <p>🏠 Startseite</p>
+
+            <p id="grundideeTitel">
+                🌱 Grundidee
+            </p>
+
+            <p id="ausruestungTitel">
+                🧰 Ausrüstung
+            </p>
+
+            <p>🗺️ Karte und Farben</p>
+
+            <p>📊 Statistik</p>
+
+            <p>👤 Profil</p>
+
+            <p>❓ Hilfe</p>
+
+            <button id="resetBtn">
+                🧪 Testdaten löschen
+            </button>
+
+            <p>⚖️ Rechtliche Hinweise</p>
+
+            <p>📜 Impressum</p>
+
+            <p>🔗 Links</p>
+
+        </div>
+
+        <div id="controls">
+
+            <button id="startBtn">
+                🟢 Start
+            </button>
+
+            <button id="stopBtn">
+                🔴 Stop
+            </button>
+
+        </div>
+
+        <div id="status">
+            Bereit für eine Sammelaktion
+        </div>
+
+        <div id="stats">
+
+            <h3>Statistik</h3>
+
+            <p id="routeCount">
+                Sammelaktionen: 0
+            </p>
+
+            <p id="distanceCount">
+                📏 Strecke: 0 km
+            </p>
+
+        </div>
+
+        <div id="history">
+
+            <h3>Historie</h3>
+
+            <div id="historyList">
+                Noch keine Sammelaktionen gespeichert.
+            </div>
+
+        </div>
+
+        <section>
+
+            <h2>Karte</h2>
+
+            <div id="map"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- GRUNDIDEE -->
+
+<div id="grundideePage"
+     style="display:none;">
+
+    <button id="backFromGrundidee">
+        ← Zurück
+    </button>
+
+    <h2>🌱 Grundidee</h2>
 
     <p>
         CleaningTheWay macht sichtbar,
@@ -47,106 +146,61 @@
         Jede Sammelaktion trägt dazu bei,
         unsere Umgebung sauberer zu halten
         und Umweltengagement sichtbar zu machen.
-        Nicht der Nutzer steht im Mittelpunkt, 
+    </p>
+
+    <p>
+        Nicht der Nutzer steht im Mittelpunkt,
         sondern der Zustand des Weges.
     </p>
-    
+
     <p>
         <strong>
             „Erst wenn alle Wege grün dargestellt
             werden, ist CleaningTheWay überflüssig.“
         </strong>
     </p>
-</div>
 
 </div>
-<p>🧹 Sammelregeln</p>
 
- <div id="ausruestung">
+<!-- AUSRÜSTUNG -->
 
-    <h3 id="ausruestungTitel">▶ 🧰 Ausrüstung</h3>
+<div id="ausruestungPage"
+     style="display:none;">
 
-    <div id="ausruestungText">
-
-        <p>
-            Für eine Sammelaktion ist keine
-            besondere Ausrüstung erforderlich.
-        </p>
-
-        <p>
-            Empfehlenswert sind:
-        </p>
-
-        <ul>
-            <li>🦾 Müllgreifer oder Müllzange</li>
-            <li>🧤 Handschuhe</li>
-            <li>🗑️ Müllbeutel oder Müllsäcke</li>
-            <li>🪣 Eimer für kleinere Funde</li>
-            <li>🛒 Trolley als mobile Mülltonne</li>
-            <li>🦺 Warnweste an Straßen</li>
-            <li>💧 Trinkflasche</li>
-        </ul>
-
-        <p>
-            Die eigene Sicherheit hat immer Vorrang.
-        </p>
-
-    </div>
-
-</div>   
-
-<p>🗺️ Karte und Farben</p>
-
-<p>📊 Statistik</p>
-
-<p>👤 Profil</p>
-
-<p>❓ Hilfe</p>
-    <button id="resetBtn">
-    🧪 Testdaten löschen
+    <button id="backFromAusruestung">
+        ← Zurück
     </button>
-<p>⚖️ Rechtliche Hinweise</p>
 
-<p>📜 Impressum</p>
+    <h2>🧰 Ausrüstung</h2>
 
-<p>🔗 Links</p>
+    <p>
+        Empfehlenswert sind:
+    </p>
+
+    <ul>
+
+        <li>🦾 Müllgreifer oder Müllzange</li>
+
+        <li>🧤 Handschuhe</li>
+
+        <li>🗑️ Müllbeutel oder Müllsäcke</li>
+
+        <li>🪣 Eimer für kleinere Funde</li>
+
+        <li>🛒 Trolley als mobile Mülltonne</li>
+
+        <li>🦺 Warnweste an Straßen</li>
+
+        <li>💧 Trinkflasche</li>
+
+    </ul>
+
+    <p>
+        Die eigene Sicherheit
+        hat immer Vorrang.
+    </p>
 
 </div>
-    <div id="controls">
-        <button id="startBtn">🟢 Start</button>
-        <button id="stopBtn">🔴 Stop</button>
-    </div>
-
-    <div id="status">
-        Bereit für eine Sammelaktion
-    </div>
-
-    <div id="stats">
-        <h3>Statistik</h3>
-
-        <p id="routeCount">
-            Sammelaktionen: 0
-        </p>
-
-        <p id="distanceCount">
-            📏 Strecke: 0 km
-        </p>
-    </div>
-    
-<div id="history">
-    <h3>Historie</h3>
-
-    <div id="historyList">
-        Noch keine Sammelaktionen gespeichert.
-    </div>
-</div>
-    
-    <section>
-        <h2>Karte</h2>
-        <div id="map"></div>
-    </section>
-
-</main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="script.js"></script>
