@@ -803,75 +803,6 @@ document
     });
 
 document
-    .getElementById("grundideeTitel")
-    .addEventListener("click", function () {
-
-        const text =
-            document.getElementById(
-                "grundideeText"
-            );
-
-        const titel =
-            document.getElementById(
-                "grundideeTitel"
-            );
-
-        if (
-            text.style.display ===
-            "block"
-        ) {
-
-            text.style.display =
-                "none";
-
-            titel.innerText =
-                "▶ 🌱 Grundidee";
-
-        } else {
-
-            text.style.display =
-                "block";
-
-            titel.innerText =
-                "▼ 🌱 Grundidee";
-        }
-    });
-
-document
-    .getElementById("ausruestungTitel")
-    .addEventListener("click", function () {
-
-        const text =
-            document.getElementById(
-                "ausruestungText"
-            );
-
-        const titel =
-            document.getElementById(
-                "ausruestungTitel"
-            );
-
-        if (
-            text.style.display ===
-            "block"
-        ) {
-
-            text.style.display =
-                "none";
-
-            titel.innerText =
-                "▶ 🧰 Ausrüstung";
-
-        } else {
-
-            text.style.display =
-                "block";
-
-            titel.innerText =
-                "▼ 🧰 Ausrüstung";
-        }
-    });
-document
     .getElementById("resetBtn")
     .addEventListener("click", function () {
 
@@ -904,3 +835,71 @@ document
             location.reload();
         }
     });
+
+document
+    .getElementById("grundideeTitel")
+    .addEventListener(
+        "click",
+        function () {
+
+            document.getElementById(
+                "mainPage"
+            ).style.display = "none";
+
+            document.getElementById(
+                "grundideePage"
+            ).style.display = "block";
+        }
+    );
+
+document
+    .getElementById(
+        "backFromGrundidee"
+    )
+    .addEventListener(
+        "click",
+        function () {
+
+            document.getElementById(
+                "grundideePage"
+            ).style.display = "none";
+
+            document.getElementById(
+                "mainPage"
+            ).style.display = "block";
+        }
+    );
+
+document
+    .getElementById("ausruestungTitel")
+    .addEventListener(
+        "click",
+        function () {
+
+            document.getElementById(
+                "mainPage"
+            ).style.display = "none";
+
+            document.getElementById(
+                "ausruestungPage"
+            ).style.display = "block";
+        }
+    );
+
+document
+    .getElementById(
+        "backFromAusruestung"
+    )
+    .addEventListener(
+        "click",
+        function () {
+
+            document.getElementById(
+                "ausruestungPage"
+            ).style.display = "none";
+
+            document.getElementById(
+                "mainPage"
+            ).style.display = "block";
+        }
+    );
