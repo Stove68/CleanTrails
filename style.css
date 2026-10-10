@@ -77,15 +77,17 @@ section {
 
 #menuBtn {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 0px;
+    right: 0px;
 
-    font-size: 24px;
+    font-size: 26px;
 
     background: none;
     border: none;
 
     cursor: pointer;
+
+    padding: 8px;
 }
 #menuPanel {
 
