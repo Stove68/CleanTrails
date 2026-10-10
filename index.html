@@ -1,141 +1,136 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>CleaningTheWay</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
 </head>
 
 <body>
 
 <header>
+
     <h1>🌿 Cleaning The Way</h1>
-    <p>Saubere Wege sichtbar machen</p>
+
+    <button id="menuBtn">
+        ☰ Menü
+    </button>
+
 </header>
 
 <!-- HAUPTSEITE -->
 
 <div id="mainPage">
 
-    <main>
+    <div id="controls">
 
-        <section id="headerSection">
+        <button id="startBtn">
+            🟢 Start
+        </button>
 
-            <h2>Willkommen</h2>
+        <button id="stopBtn">
+            🔴 Stop
+        </button>
 
-            <button id="menuBtn">
-                ☰ Menü
-            </button>
+    </div>
 
-            <p>
-                Cleaning The Way dokumentiert
-                gereinigte Wege und macht
-                Umweltengagement sichtbar.
-            </p>
+    <div id="status">
+        Bereit für eine Sammelaktion
+    </div>
 
-        </section>
+    <div id="stats">
 
-        <div id="menuPanel">
+        <p id="routeCount">
+            🧹 Sammelaktionen: 0
+        </p>
 
-            <p>🏠 Startseite</p>
+        <p id="distanceCount">
+            📏 Strecke: 0 km
+        </p>
 
-            <p id="grundideeTitel">
-                🌱 Grundidee
-            </p>
+    </div>
 
-            <p id="ausruestungTitel">
-                🧰 Ausrüstung
-            </p>
+    <section id="mapSection">
 
-            <p>🗺️ Karte und Farben</p>
+        <div id="map"></div>
 
-            <p>📊 Statistik</p>
+    </section>
 
-            <p>👤 Profil</p>
+</div>
 
-            <p>❓ Hilfe</p>
+<!-- MENÜ -->
 
-            <button id="resetBtn">
-                🧪 Testdaten löschen
-            </button>
+<div id="menuPanel">
 
-            <p>⚖️ Rechtliche Hinweise</p>
+    <p>🏠 Startseite</p>
 
-            <p>📜 Impressum</p>
+    <p id="grundideeTitel">
+        🌱 Grundidee
+    </p>
 
-            <p>🔗 Links</p>
+    <p id="ausruestungTitel">
+        🧰 Ausrüstung
+    </p>
 
-        </div>
+    <p id="historieTitel">
+        📊 Historie
+    </p>
 
-        <div id="controls">
+    <p>
+        🗺️ Karte und Farben
+    </p>
 
-            <button id="startBtn">
-                🟢 Start
-            </button>
+    <p>
+        👤 Profil
+    </p>
 
-            <button id="stopBtn">
-                🔴 Stop
-            </button>
+    <p>
+        ❓ Hilfe
+    </p>
 
-        </div>
+    <button id="resetBtn">
+        🧪 Testdaten löschen
+    </button>
 
-        <div id="status">
-            Bereit für eine Sammelaktion
-        </div>
+    <p>
+        ⚖️ Rechtliche Hinweise
+    </p>
 
-        <div id="stats">
+    <p>
+        📜 Impressum
+    </p>
 
-            <h3>Statistik</h3>
-
-            <p id="routeCount">
-                Sammelaktionen: 0
-            </p>
-
-            <p id="distanceCount">
-                📏 Strecke: 0 km
-            </p>
-
-        </div>
-
-        <div id="history">
-
-            <h3>Historie</h3>
-
-            <div id="historyList">
-                Noch keine Sammelaktionen gespeichert.
-            </div>
-
-        </div>
-
-        <section>
-
-            <h2>Karte</h2>
-
-            <div id="map"></div>
-
-        </section>
-
-    </main>
+    <p>
+        🔗 Links
+    </p>
 
 </div>
 
 <!-- GRUNDIDEE -->
 
-<div id="grundideePage"
-     style="display:none;">
+<div
+    id="grundideePage"
+    style="display:none;">
 
     <button id="backFromGrundidee">
         ← Zurück
     </button>
 
-    <h2>🌱 Grundidee</h2>
+    <h2>
+        🌱 Grundidee
+    </h2>
 
     <p>
         CleaningTheWay macht sichtbar,
@@ -155,8 +150,8 @@
 
     <p>
         <strong>
-            „Erst wenn alle Wege grün dargestellt
-            werden, ist CleaningTheWay überflüssig.“
+            „Erst wenn alle Wege grün dargestellt werden,
+            ist CleaningTheWay überflüssig.“
         </strong>
     </p>
 
@@ -164,45 +159,76 @@
 
 <!-- AUSRÜSTUNG -->
 
-<div id="ausruestungPage"
-     style="display:none;">
+<div
+    id="ausruestungPage"
+    style="display:none;">
 
     <button id="backFromAusruestung">
         ← Zurück
     </button>
 
-    <h2>🧰 Ausrüstung</h2>
-
-    <p>
-        Empfehlenswert sind:
-    </p>
+    <h2>
+        🧰 Ausrüstung
+    </h2>
 
     <ul>
 
-        <li>🦾 Müllgreifer oder Müllzange</li>
+        <li>
+            🦾 Müllgreifer
+        </li>
 
-        <li>🧤 Handschuhe</li>
+        <li>
+            🧤 Handschuhe
+        </li>
 
-        <li>🗑️ Müllbeutel oder Müllsäcke</li>
+        <li>
+            🗑️ Müllbeutel
+        </li>
 
-        <li>🪣 Eimer für kleinere Funde</li>
+        <li>
+            🪣 Eimer
+        </li>
 
-        <li>🛒 Trolley als mobile Mülltonne</li>
+        <li>
+            🛒 Trolley
+        </li>
 
-        <li>🦺 Warnweste an Straßen</li>
+        <li>
+            🦺 Warnweste
+        </li>
 
-        <li>💧 Trinkflasche</li>
+        <li>
+            💧 Trinkflasche
+        </li>
 
     </ul>
 
-    <p>
-        Die eigene Sicherheit
-        hat immer Vorrang.
-    </p>
+</div>
+
+<!-- HISTORIE -->
+
+<div
+    id="historiePage"
+    style="display:none;">
+
+    <button id="backFromHistorie">
+        ← Zurück
+    </button>
+
+    <h2>
+        📊 Historie
+    </h2>
+
+    <div id="historyList">
+
+        Noch keine Sammelaktionen gespeichert.
+
+    </div>
 
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script src="script.js"></script>
 
 </body>
