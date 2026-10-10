@@ -408,7 +408,6 @@ function getRouteLength(points) {
 
         currentLength += distance;
        
-);
         console.log(
             "Aktuelle Segmentlänge:",
             currentLength
