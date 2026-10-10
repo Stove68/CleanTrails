@@ -88,7 +88,30 @@ section {
     cursor: pointer;
 }
 #menuPanel {
+
     display: none;
+
+    position: absolute;
+
+    top: 70px;
+
+    right: 20px;
+
+    width: 260px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    box-shadow:
+        0 4px 12px rgba(
+            0,0,0,0.2
+        );
+
+    z-index: 9999;
+}
 }
 #grundideeTitel {
     cursor: pointer;
