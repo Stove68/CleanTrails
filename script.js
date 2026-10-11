@@ -190,6 +190,49 @@ function comparePoints(pointsA, pointsB) {
 
     return matches >= 3;
 }
+function isSameSegment(
+    segmentA,
+    segmentB
+) {
+
+    if (
+        !segmentA ||
+        !segmentB ||
+        segmentA.length < 2 ||
+        segmentB.length < 2
+    ) {
+        return false;
+    }
+
+    const startDistance =
+        calculateDistance(
+            segmentA[0][0],
+            segmentA[0][1],
+            segmentB[0][0],
+            segmentB[0][1]
+        );
+
+    const endDistance =
+        calculateDistance(
+            segmentA[
+                segmentA.length - 1
+            ][0],
+            segmentA[
+                segmentA.length - 1
+            ][1],
+            segmentB[
+                segmentB.length - 1
+            ][0],
+            segmentB[
+                segmentB.length - 1
+            ][1]
+        );
+
+    return (
+        startDistance < 0.02 &&
+        endDistance < 0.02
+    );
+}
 
 function isSameRoute(
     routeA,
