@@ -692,20 +692,7 @@ const segments =
     splitRouteIntoSegments(
         routePoints
     );
-    
-console.log(
-    "Neue Segmente:"
-);
-
-console.log(
-    segments
-);
-    
-console.log(
-    "Segmentanzahl:",
-    segments.length
-);
-    
+      
 savedRoutes.push({
 
     date:
