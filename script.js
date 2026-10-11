@@ -115,11 +115,11 @@ if (savedRoute.isoDate) {
     (today - routeDate) / 60000
 );
 
-   if (ageInMinutes >= 15) {
+   if (ageInHours >= 24) {
 
     routeColor = "gray";
 
-} else if (ageInMinutes >= 5) {
+} else if (ageInMinutes >= 30) {
 
     routeColor = "orange";
         }
@@ -384,7 +384,7 @@ function getRouteLength(points) {
  }
  function splitRouteIntoSegments(
     route,
-    segmentSize = 100
+    segmentSize = 50
 ) {
 
     const segments = [];
@@ -692,7 +692,20 @@ const segments =
     splitRouteIntoSegments(
         routePoints
     );
+    
+console.log(
+    "Neue Segmente:"
+);
 
+console.log(
+    segments
+);
+    
+console.log(
+    "Segmentanzahl:",
+    segments.length
+);
+    
 savedRoutes.push({
 
     date:
