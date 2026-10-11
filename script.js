@@ -111,18 +111,26 @@ if (savedRoute.isoDate) {
     const today =
         new Date();
 
-    const ageInMinutes = Math.floor(
+   const ageInMinutes = Math.floor(
     (today - routeDate) / 60000
 );
 
-   if (ageInHours >= 24) {
+const ageInHours = Math.floor(
+    (today - routeDate) / 3600000
+);
+
+if (ageInHours >= 24) {
 
     routeColor = "gray";
 
 } else if (ageInMinutes >= 30) {
 
     routeColor = "orange";
-        }
+
+} else {
+
+    routeColor = "green";
+
 }
             
           L.polyline(
