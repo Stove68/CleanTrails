@@ -130,7 +130,7 @@ if (ageInHours >= 24) {
 } else {
 
     routeColor = "green";
-
+    }
 }
             
           L.polyline(
