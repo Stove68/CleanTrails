@@ -125,10 +125,8 @@ if (savedRoute.isoDate) {
         }
 }
             
-           L.polyline(
-            smoothRoute(
-            savedRoute.route
-            ),
+          L.polyline(
+    savedRoute.route,
     {
         color: routeColor,
         weight: 4
