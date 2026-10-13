@@ -713,10 +713,19 @@ const segmentMatches =
         segments
     );
 
-console.log(
-    "Treffende Segmente:",
-    segmentMatches
-); 
+document.getElementById(
+    "status"
+).innerText =
+
+    "Treffer: " +
+    segmentMatches +
+
+    " / " +
+
+    savedRoute.segments.length +
+
+    " Segmente";
+    
   console.log(
     "Gespeicherte Segmente:",
     savedRoute.segments.length
