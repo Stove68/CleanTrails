@@ -229,8 +229,8 @@ function isSameSegment(
         );
 
     return (
-        startDistance < 0.02 &&
-        endDistance < 0.02
+        startDistance < 0.05 &&
+        endDistance < 0.05
     );
 }
 function countMatchingSegments(
@@ -717,6 +717,10 @@ console.log(
     "Treffende Segmente:",
     segmentMatches
 ); 
+  console.log(
+    "Gespeicherte Segmente:",
+    savedRoute.segments.length
+);  
     console.log(
     "Gespeicherte Segmente:",
     savedRoute.segments.length
