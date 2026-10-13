@@ -233,7 +233,35 @@ function isSameSegment(
         endDistance < 0.02
     );
 }
+function countMatchingSegments(
+    segmentsA,
+    segmentsB
+) {
 
+    let matches = 0;
+
+    segmentsA.forEach(
+        (segmentA) => {
+
+            const foundMatch =
+                segmentsB.some(
+                    (segmentB) =>
+
+                        isSameSegment(
+                            segmentA,
+                            segmentB
+                        )
+                );
+
+            if (foundMatch) {
+
+                matches++;
+            }
+        }
+    );
+
+    return matches;
+}
 function isSameRoute(
     routeA,
     routeB
@@ -667,14 +695,33 @@ tours.push({
 isTracking = false; 
         
 let matchingRoute = null;
-
+        
+const segments =
+    splitRouteIntoSegments(
+        routePoints
+    );
 savedRoutes.forEach((savedRoute) => {
     const overlap =
         getOverlapPercent(
             savedRoute.route,
             routePoints
         );
- 
+
+const segmentMatches =
+    countMatchingSegments(
+        savedRoute.segments || [],
+        segments
+    );
+
+console.log(
+    "Treffende Segmente:",
+    segmentMatches
+); 
+    console.log(
+    "Gespeicherte Segmente:",
+    savedRoute.segments.length
+);
+    
     console.log(
         "Überdeckung:",
         Math.round(overlap * 100) + "%"
