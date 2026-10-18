@@ -767,7 +767,7 @@ if (matchingRoute) {
                         )
                 );
 
-            if (foundMatch) {
+         if (foundMatch) {
 
                 updatedSegments++;
             }
@@ -775,15 +775,7 @@ if (matchingRoute) {
     );
 
     status.innerHTML =
-
-        "✅ Sammelaktion beendet<br>" +
-
-        "Treffer: " +
-        updatedSegments +
-
-        " / " +
-
-        matchingRoute.segments.length;
+       "✅ Sammelaktion beendet<br>" +
 
     matchingRoute.cleanCount =
         (matchingRoute.cleanCount || 1) + 1;
