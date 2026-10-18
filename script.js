@@ -1026,5 +1026,4 @@ document
                 "mainPage"
             ).style.display = "block";
         }
-    );
-});
+);
