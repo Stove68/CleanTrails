@@ -774,8 +774,8 @@ if (matchingRoute) {
         }
     );
 
-    status.innerHTML =
-       "✅ Sammelaktion beendet<br>" +
+    status.innerText =
+    "✅ Sammelaktion beendet";
 
     matchingRoute.cleanCount =
         (matchingRoute.cleanCount || 1) + 1;
