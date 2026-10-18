@@ -909,12 +909,6 @@ document.getElementById(
 
 status.innerText =
     "✅ Sammelaktion beendet";
-        
-} else {
-
-    status.innerText =
-        "✅ Neue Sammelaktion gespeichert";
-}
 
 document
     .getElementById("menuBtn")
