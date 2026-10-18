@@ -894,21 +894,7 @@ document.getElementById(
 
 status.innerText =
     "✅ Sammelaktion beendet";
-
-document.getElementById(
-    "startBtn"
-).disabled = false;
-
-document.getElementById(
-    "menuBtn"
-).disabled = false;
-
-document.getElementById(
-    "resetBtn"
-).disabled = false;
-
-status.innerText =
-    "✅ Sammelaktion beendet";
+});
 
 document
     .getElementById("menuBtn")
