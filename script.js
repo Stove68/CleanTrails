@@ -905,6 +905,7 @@ document
                 "menuPanel"
             );
 
+        
         if (
             panel.style.display ===
             "block"
@@ -1021,3 +1022,4 @@ document
             ).style.display = "block";
         }
     );
+});
