@@ -1027,4 +1027,3 @@ document
             ).style.display = "block";
         }
 );
-});
