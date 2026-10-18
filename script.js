@@ -774,8 +774,13 @@ if (matchingRoute) {
         }
     );
 
-status.innerText =
-    "Test";
+status.innerHTML =
+    "✅ Sammelaktion beendet<br>" +
+    "Treffer: " +
+    updatedSegments +
+    " / " +
+    matchingRoute.segments.length +
+    " Segmente";
 
     matchingRoute.cleanCount =
         (matchingRoute.cleanCount || 1) + 1;
