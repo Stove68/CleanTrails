@@ -700,18 +700,12 @@ const segmentMatches =
         segments
     );
 
-document.getElementById(
-    "status"
-).innerText =
-
-    "Treffer: " +
-    segmentMatches +
-
-    " / " +
-
-    savedRoute.segments.length +
-
-    " Segmente";
+console.log(
+    "Treffer:",
+    segmentMatches,
+    "/",
+    savedRoute.segments.length
+);
     
   console.log(
     "Gespeicherte Segmente:",
@@ -894,7 +888,7 @@ localStorage.setItem(
 
     wakeLock = null;
 }
-        document.getElementById(
+ document.getElementById(
     "startBtn"
 ).disabled = false;
 
@@ -906,20 +900,24 @@ document.getElementById(
     "resetBtn"
 ).disabled = false;
 
-if (matchingRoute) {
-
-    status.innerText =
+status.innerText =
     "✅ Sammelaktion beendet";
 
-        "Treffer: " +
-        updatedSegments +
+document.getElementById(
+    "startBtn"
+).disabled = false;
 
-        " / " +
+document.getElementById(
+    "menuBtn"
+).disabled = false;
 
-        matchingRoute.segments.length +
+document.getElementById(
+    "resetBtn"
+).disabled = false;
 
-        " Segmente";
-
+status.innerText =
+    "✅ Sammelaktion beendet";
+        
 } else {
 
     status.innerText =
