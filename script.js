@@ -459,7 +459,7 @@ function getRouteLength(points) {
 
     return distance;
  }
- function splitRouteIntoSegments(
+function splitRouteIntoSegments(
     route,
     segmentSize = 50
 ) {
@@ -484,25 +484,15 @@ function getRouteLength(points) {
         );
 
         currentLength += distance;
-       
-        console.log(
-            "Aktuelle Segmentlänge:",
-            currentLength
-        );
-        
+
         if (
             currentLength >=
             segmentSize
         ) {
-        console.log(
-    "Neues Segment erzeugt bei",
-    currentLength,
-    "m"
-);
-            
-     segments.push(
-        [...currentSegment]
-        );
+
+            segments.push(
+                [...currentSegment]
+            );
 
             currentSegment = [];
             currentLength = 0;
@@ -517,11 +507,8 @@ function getRouteLength(points) {
             currentSegment
         );
     }
-        console.log(
-        "Anzahl Segmente:",
-        segments.length
-);
-    return segments;   
+
+    return segments;
 }
 function smoothRoute(points) {
 
@@ -921,9 +908,8 @@ document.getElementById(
 
 if (matchingRoute) {
 
-    status.innerHTML =
-
-        "✅ Sammelaktion beendet<br>" +
+    status.innerText =
+    "✅ Sammelaktion beendet";
 
         "Treffer: " +
         updatedSegments +
