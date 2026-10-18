@@ -899,6 +899,7 @@ document.getElementById(
 
 status.innerText =
     "✅ Sammelaktion beendet";
+        
 });
 
 document
