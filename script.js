@@ -766,10 +766,44 @@ console.log(
     matchingRoute !== null
 );        
 if (matchingRoute) {
-    
+
     console.log(
-    "Bestehender Weg wird aktualisiert"
+        "Bestehender Weg wird aktualisiert"
     );
+
+    let updatedSegments = 0;
+
+    segments.forEach(
+        (newSegment) => {
+
+            const foundMatch =
+                matchingRoute.segments.some(
+                    (oldSegment) =>
+
+                        isSameSegment(
+                            newSegment,
+                            oldSegment
+                        )
+                );
+
+            if (foundMatch) {
+
+                updatedSegments++;
+            }
+        }
+    );
+
+    status.innerHTML =
+
+        "✅ Sammelaktion beendet<br>" +
+
+        "Treffer: " +
+        updatedSegments +
+
+        " / " +
+
+        matchingRoute.segments.length;
+
     matchingRoute.cleanCount =
         (matchingRoute.cleanCount || 1) + 1;
 
@@ -777,8 +811,8 @@ if (matchingRoute) {
         new Date().toLocaleDateString();
 
     matchingRoute.time =
-new Date().toLocaleTimeString();
-    
+        new Date().toLocaleTimeString();
+
     matchingRoute.isoDate =
         new Date().toISOString();
 
@@ -789,12 +823,13 @@ new Date().toLocaleTimeString();
         routeDistance;
 
     matchingRoute.route =
-    [...routePoints];
+        [...routePoints];
 
     matchingRoute.segments =
-    splitRouteIntoSegments(
-        routePoints
-    );
+        splitRouteIntoSegments(
+            routePoints
+        );
+
 } else {
     
 const segments =
@@ -883,9 +918,27 @@ document.getElementById(
 document.getElementById(
     "resetBtn"
 ).disabled = false;
-        status.innerText =
-            "✅ Sammelaktion beendet";
-    });
+
+if (matchingRoute) {
+
+    status.innerHTML =
+
+        "✅ Sammelaktion beendet<br>" +
+
+        "Treffer: " +
+        updatedSegments +
+
+        " / " +
+
+        matchingRoute.segments.length +
+
+        " Segmente";
+
+} else {
+
+    status.innerText =
+        "✅ Neue Sammelaktion gespeichert";
+}
 
 document
     .getElementById("menuBtn")
