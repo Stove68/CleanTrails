@@ -897,8 +897,8 @@ document.getElementById(
     "resetBtn"
 ).disabled = false;
 
-status.innerText =
-    "✅ Sammelaktion beendet";
+//status.innerText =
+    //"✅ Sammelaktion beendet";
         
 });
 
