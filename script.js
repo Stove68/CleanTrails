@@ -228,9 +228,41 @@ function isSameSegment(
             ][1]
         );
 
-    return (
+    const reverseStartDistance =
+        calculateDistance(
+            segmentA[0][0],
+            segmentA[0][1],
+            segmentB[
+                segmentB.length - 1
+            ][0],
+            segmentB[
+                segmentB.length - 1
+            ][1]
+        );
+
+    const reverseEndDistance =
+        calculateDistance(
+            segmentA[
+                segmentA.length - 1
+            ][0],
+            segmentA[
+                segmentA.length - 1
+            ][1],
+            segmentB[0][0],
+            segmentB[0][1]
+        );
+
+    const forwardMatch =
         startDistance < 0.05 &&
-        endDistance < 0.05
+        endDistance < 0.05;
+
+    const reverseMatch =
+        reverseStartDistance < 0.05 &&
+        reverseEndDistance < 0.05;
+
+    return (
+        forwardMatch ||
+        reverseMatch
     );
 }
 function countMatchingSegments(
