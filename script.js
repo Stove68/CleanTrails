@@ -696,8 +696,15 @@ document
 
     watchId = null;
 }
+        alert("Stop erreicht");
+        
+        status.innerText =
+    "Stop bestätigt";
         actionCounter++;
-
+        
+    status.innerText =
+    "Route wird berechnet";
+        
         const routeDistance =
             getRouteLength(routePoints);
 
@@ -719,6 +726,9 @@ const segments =
     splitRouteIntoSegments(
         routePoints
     );
+     status.innerText =
+    "Segmente erzeugt";
+        
 savedRoutes.forEach((savedRoute) => {
     const overlap =
         getOverlapPercent(
