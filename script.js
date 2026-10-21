@@ -786,6 +786,9 @@ if (matchingRoute) {
 
     let updatedSegments = 0;
 
+    status.innerText =
+    "Segmentvergleich gestartet";
+
     segments.forEach(
         (newSegment) => {
 
@@ -805,7 +808,9 @@ if (matchingRoute) {
             }
         }
     );
-
+status.innerText =
+    "Segmentvergleich fertig";
+    
 status.innerHTML =
     "✅ Sammelaktion beendet<br>" +
     "Treffer: " +
