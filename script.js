@@ -730,64 +730,84 @@ const segments =
     "Segmente erzeugt";
         
 savedRoutes.forEach((savedRoute) => {
+
     const overlap =
         getOverlapPercent(
             savedRoute.route,
             routePoints
         );
 
-const segmentMatches =
-    countMatchingSegments(
-        savedRoute.segments || [],
-        segments
+    const segmentMatches =
+        countMatchingSegments(
+            savedRoute.segments || [],
+            segments
+        );
+
+    console.log(
+        "Treffer:",
+        segmentMatches,
+        "/",
+        savedRoute.segments.length
     );
 
-console.log(
-    "Treffer:",
-    segmentMatches,
-    "/",
-    savedRoute.segments.length
-);
-    
-  console.log(
-    "Gespeicherte Segmente:",
-    savedRoute.segments.length
-);  
     console.log(
-    "Gespeicherte Segmente:",
-    savedRoute.segments.length
-);
-    
-    console.log(
-        "Überdeckung:",
-        Math.round(overlap * 100) + "%"
-);
-    if (
- 
+        "isSameRoute:",
         isSameRoute(
-        savedRoute.route,
-        routePoints
-    )
- 
-    ||
- 
-    isNearRoute(
-    savedRoute.route,
-    routePoints
-    )
-    ||
- 
-    overlap > 0.8
-){
+            savedRoute.route,
+            routePoints
+        )
+    );
+
+    console.log(
+        "isNearRoute:",
+        isNearRoute(
+            savedRoute.route,
+            routePoints
+        )
+    );
+
+    console.log(
+        "overlap:",
+        overlap
+    );
+
+    console.log(
+        "segmentMatches:",
+        segmentMatches
+    );
+
+    console.log(
+        "Segmentquote:",
+        segmentMatches /
+        savedRoute.segments.length
+    );
+
+    if (
+        isSameRoute(
+            savedRoute.route,
+            routePoints
+        )
+        ||
+        isNearRoute(
+            savedRoute.route,
+            routePoints
+        )
+        ||
+        overlap > 0.8
+    ) {
 
         matchingRoute =
             savedRoute;
+
     }
+
 });
+
 console.log(
     "Route erkannt:",
     matchingRoute !== null
-);        
+);
+
 if (matchingRoute) {
 
     console.log(
