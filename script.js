@@ -794,30 +794,34 @@ if (matchingRoute) {
         "Bestehender Weg wird aktualisiert"
     );
 
-    let updatedSegments = 0;
+let updatedSegments = 0;
+const matchedIndices = new Set();
 
-    status.innerText =
+status.innerText =
     "Segmentvergleich gestartet";
 
-    segments.forEach(
-        (newSegment) => {
+segments.forEach((newSegment) => {
 
-            const foundMatch =
-                matchingRoute.segments.some(
-                    (oldSegment) =>
+    matchingRoute.segments.forEach(
+        (oldSegment, index) => {
 
-                        isSameSegment(
-                            newSegment,
-                            oldSegment
-                        )
-                );
+            if (
+                !matchedIndices.has(index) &&
+                isSameSegment(
+                    newSegment,
+                    oldSegment
+                )
+            ) {
 
-         if (foundMatch) {
-
+                matchedIndices.add(index);
                 updatedSegments++;
+
             }
+
         }
     );
+
+});
 status.innerText =
     "Segmentvergleich fertig";
     
